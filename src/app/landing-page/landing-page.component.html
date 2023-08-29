@@ -5,8 +5,9 @@
 
      <div class="hero-footer-container container d-flex justify-content-between align-items-center">
       <div class="flightBtns">
-        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'arrivals-btn':true,'selected':showingArrivals}" class="btn btn-outline flight-btn arrivals-btn" (click)="showArrivals()">ARRIVALS <img src="../../assets/down-right.png" class="arrow-icon"></button>
-        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'departures-btn':true,'selected':!showingArrivals}" (click)="showDepartures()">DEPARTURES<img src="../../assets/up-right-arrow.png" class="arrow-icon"></button>
+        <!-- ../../assets/down-right.png -->
+        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'arrivals-btn':true,'selected':showingArrivals}" class="btn btn-outline flight-btn arrivals-btn" (click)="showArrivals()">ARRIVALS <img src="https://github.com/mmicleus/airport-app/blob/gh-pages/docs/assets/down-right.png?raw=true" class="arrow-icon"></button>
+        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'departures-btn':true,'selected':!showingArrivals}" (click)="showDepartures()">DEPARTURES<img src="https://github.com/mmicleus/airport-app/blob/gh-pages/docs/assets/up-right-arrow.png?raw=true" class="arrow-icon"></button>
       </div>
   
       <app-filters (airportSelected)="fetchNewAirport($event)"></app-filters>
