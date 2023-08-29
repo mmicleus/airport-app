@@ -1,0 +1,140 @@
+<div class="hero" >
+  <div class="airport-name">{{airportName}}</div>
+
+  <div class="hero-footer">
+
+     <div class="hero-footer-container container d-flex justify-content-between align-items-center">
+      <div class="flightBtns">
+        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'arrivals-btn':true,'selected':showingArrivals}" class="btn btn-outline flight-btn arrivals-btn" (click)="showArrivals()">ARRIVALS <img src="../../assets/down-right.png" class="arrow-icon"></button>
+        <button [ngClass]="{'btn':true,'btnOutline':true,'flight-btn':true,'departures-btn':true,'selected':!showingArrivals}" (click)="showDepartures()">DEPARTURES<img src="../../assets/up-right-arrow.png" class="arrow-icon"></button>
+      </div>
+  
+      <app-filters (airportSelected)="fetchNewAirport($event)"></app-filters>
+     </div>
+   
+
+  
+  </div>
+</div>
+
+  
+
+
+
+
+   <!-- Start of search bar -->
+<!-- 
+   <div class="container mt-5">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h2 class="title">WHAT'S ON</h2>
+      </div>
+      <div class="col-12 col-md-6">
+        <form class="d-flex" (ngSubmit)="">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control movie-search" placeholder="Search for an airport" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-warning search-btn" type="button" id="button-addon2">search</button>
+          </div>            
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- end of search bar -->
+
+  <!-- *ngIf="isLoading" -->
+  
+
+  <div class="loading-container mt-5"  *ngIf="isLoading">
+    <h5 class="text-center">Loading {{airportName}} Airport...</h5>
+    <app-spinner></app-spinner>
+  </div>
+  
+
+
+
+
+    <!-- -------------------------------------------- flights schedule table ---------------------------------------- -->
+
+  <div class="container mt-5" *ngIf="!isLoading">
+    <div class="row">
+
+      <form class="d-flex">
+        <div class="input-group mb-3">
+          <button type="button" class="search-btn"  id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" (input)="filterFlights(flightKeywordInput)" #flightKeywordInput maxlength="30"  class="form-control movie-search" placeholder="Search for a flight" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>            
+      </form>
+
+    </div>
+    <div class="row header-row">
+      <div class="col-2">
+        FLIGHT NO.
+      </div>
+      <div class="col-4">
+        {{showingArrivals ? "FROM" : "DESTINATION"}}
+      </div>
+      <div class="col-2">
+        SCH. TIME
+      </div>
+      <div class="col-4 d-flex justify-content-between">
+        <span>FLIGHT STATUS</span>
+
+        <span class="airline-header">AIRLINE</span>
+      </div>
+    </div>
+
+  
+    <!-- (click)="openDialog('0ms', '0ms',flightData) -->
+
+    <div class="row table-row" (click)="onFlightClick($event,flightData)"    *ngFor="let flightData of flights">
+      
+      <div class="col-2 flight-nr d-flex">
+        <span>{{flightData.flight.number}}</span>
+        <button (click)="goToTrackingPage(flightData)" class="me-3 track-btn">Track</button>
+      </div>
+      <div class="col-4 departure-airport">
+        <span class="departure-airport-name">{{tableUtility.getAirport(flightData)}}</span>
+      </div>
+      <div class="col-2 sch-time">
+        <div>
+        <span [ngStyle]="tableUtility.getSchTimeStyles(flightData)">{{utility.getFormattedDate(tableUtility.getSchTime(flightData))}}</span>
+        <!-- <br> -->
+        <div *ngIf="flightData.flight.status === 'Delayed'">
+        <span class="delayed-time" >{{utility.getFormattedDate(tableUtility.getDelayTime(flightData))}}</span>
+        <br>
+          <span class="delayed-time">Delayed</span>
+        </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="d-flex justify-content-between" [ngStyle]="tableUtility.getStylesByStatus(flightData)">
+          <span class="flight-status me-5">{{tableUtility.getStatusMessage(flightData)}}</span>
+
+          <div class="logo-container">
+              <img *ngIf="flightData?.logo" [src]="flightData?.logo" alt="Airline logo" class="airline-logo">
+              <span *ngIf="!flightData?.logo" class="airline-name">{{flightData?.flight?.airline?.name}}</span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <!-- <app-pagination [currentPage]="1" [total]="80" [limit]="10"></app-pagination> -->
+        
+      </div>
+    </div>
+  </div>
+
+
+     <!-- -------------------------------------------- end of flights schedule table ---------------------------------------- -->
+
+     <app-pagination (changePage)="onPageChange($event)" [ngClass]="{'hidden':isLoading}"></app-pagination>
+
+ 
+
+  
+
+
+

@@ -1,0 +1,56 @@
+// body{
+//     color:#000000;
+//    color: #001eff;
+//    color:#553939;
+//    color:#1E5128;
+//    color:#79747b;
+//    color:#11ff00;
+//    color:#ff9500;
+
+// }
+
+.title1{
+    color:#00b6ff
+}
+
+
+.title2{
+    color:#00b6ff;
+}
+
+
+.navbar{
+    background-color: #212529;
+}
+
+.nav-link{
+    color:#00b6ff;
+    display: inline-block;
+    position: relative;
+
+}
+
+
+.nav-link::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00b6ff;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+    
+}
+
+.nav-link:hover::after{
+    transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.fa-plane{
+    transform: rotate(-60deg);
+    transform-origin: center;
+}

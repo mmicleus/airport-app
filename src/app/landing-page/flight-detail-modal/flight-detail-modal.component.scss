@@ -1,0 +1,109 @@
+$modal-horizontal-padding:4rem;
+$modal-vertical-padding:4rem;
+
+.modal-container{
+    // padding:7rem 6rem;
+    height:100%;
+}
+
+.modal-header{
+    display: flex;
+    flex-direction: column;
+    height:55%;
+    background-color: rgb(246, 245, 245);
+    padding:$modal-vertical-padding $modal-horizontal-padding;
+}
+
+.modal-footer{
+    height:45%;
+    background-color: #fff;
+
+}
+
+.airport-name{
+    font-size:3rem;
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 2px;
+}
+
+.full-time{
+    font-weight: 500;
+}
+
+.details{
+    display: flex;
+    gap:3rem;
+}
+
+.first-row{
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.second-row{
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+}
+
+.plane-logo{
+    font-size:1.5rem;
+}
+
+.details-header{
+    font-size:0.7rem;
+    color:gray;
+    font-weight:500;
+}
+
+.details-content{
+    font-weight: 500;
+}
+
+.iata-code{
+    font-family: "Roboto", sans-serif;
+    font-size:1.7rem;
+    font-weight:500;
+}
+
+.airport-subname{
+    font-weight: 500;
+}
+
+.airline-name{
+    font-size:2.5rem;
+    font-weight: bold;
+}
+
+
+.danger-color{
+    color:#EB3E32;
+}
+
+.details-header.danger-color{
+    font-size:0.7rem;
+    color:#EB3E32;
+    font-weight:500;
+}
+
+
+@media screen and (max-width:1400px){
+    
+    .details{
+        gap:1rem;
+    }
+}
+
+@media screen and (max-width:1200px){
+    .first-row{
+        flex-direction: column;
+        row-gap: 1.2rem;
+    }
+
+    .modal-header{
+        row-gap:1.2rem;
+    }
+}
+

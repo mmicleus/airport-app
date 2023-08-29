@@ -1,0 +1,104 @@
+    <!-- -------------------------------------------- flights schedule table ---------------------------------------- -->
+
+    <!-- <div class="container mt-5" *ngIf="!isLoading"> -->
+        <div class="container mt-5">
+        <!-- <div class="row">
+    
+          <form class="d-flex">
+            <div class="input-group mb-3">
+              <button type="button" class="search-btn"  id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <input type="text" (input)="filterFlights(flightKeywordInput)" #flightKeywordInput maxlength="30"  class="form-control movie-search" placeholder="Search for a flight" aria-label="Recipient's username" aria-describedby="button-addon2">
+            </div>            
+          </form>
+    
+        </div> -->
+        <div class="row header-row">
+          <div class="col-2">
+            FLIGHT NO.
+          </div>
+          <div class="col-4">
+            <!-- {{showingArrivals ? "FROM" : "DESTINATION"}} -->
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <span>FROM</span>
+                </div>
+                <div class="col-6">
+                  <span>TO</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            SCH. TIME
+          </div>
+          <div class="col-4 d-flex justify-content-between">
+            <span>FLIGHT STATUS</span>
+    
+            <span class="airline-header">AIRLINE</span>
+          </div>
+        </div>
+
+
+        <!-- centerMapAroundAircraft($event,unit.coords.geography.aircraftCoords) -->
+        <div class="row table-row d-flex" *ngFor="let unit of trackedFlights" (click)="onFlightClicked($event,unit)">
+
+          
+      
+            <div class="col-2 flight-nr d-flex">
+              <span><span class="me-2 trash-icon"><i class="fa-solid fa-trash" (click)="deleteFlight(unit)"></i></span><span class="flight-num" [ngStyle]="{'border-bottom':getBorderColorByName(unit.markerColor)}">{{unit.completeFlightData.flight.number}}</span></span>
+              <input type="checkbox" id="track" name="track" class="track" [checked]="isSelected(unit)" (click)="onCheckboxToggled($event,unit)" />
+              <!-- <button (click)="goToTrackingPage(unit.completeFlightData)" class="me-3 track-btn">Track</button> -->
+            </div>
+            <div class="col-4 departure-airport">
+              <div class="container">
+                <div class="row">
+                  <div class="col-6 overflow-hidden">
+                    <span class="airport-name" (click)="onAirportClicked(unit.coords.srcAirport.coords,unit)">{{unit.coords.srcAirport.fullName}}</span>
+                  </div>
+                  <div class="col-6" >
+                    <span class="airport-name" (click)="onAirportClicked(unit.coords.destAirport.coords,unit)">{{unit.coords.destAirport.fullName}}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- <span>{{tableUtility.getAirport(unit.completeFlightData)}}</span> -->
+              <!-- <span>{{tableUtility.getAirport(unit.completeFlightData)}}</span> -->
+            </div>
+            <div class="col-2 sch-time">
+              <div>
+              <span [ngStyle]="tableUtility.getSchTimeStyles(unit.completeFlightData)">{{utility.getFormattedDate(tableUtility.getSchTime(unit.completeFlightData))}}</span>
+              <!-- <br> -->
+              <div *ngIf="unit.completeFlightData.flight.status === 'Delayed'">
+              <span class="delayed-time" >{{utility.getFormattedDate(tableUtility.getDelayTime(unit.completeFlightData))}}</span>
+              <br>
+                <span class="delayed-time">Delayed</span>
+              </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="d-flex justify-content-between" [ngStyle]="tableUtility.getStylesByStatus(unit.completeFlightData)">
+                <span class="flight-status me-5">{{tableUtility.getStatusMessage(unit.completeFlightData)}}</span>
+
+                <!-- <span class="flight-status me-5">{{tableUtility.getStatusMessage(unit.completeFlightData)}}</span> -->
+                <!-- <span class="flight-status me-5">{{unit.coords.status}}</span> -->
+        
+        
+                <div class="logo-container">
+                    <img *ngIf="unit.completeFlightData?.logo" [src]="unit.completeFlightData?.logo" alt="Airline logo" class="airline-logo">
+                    <span *ngIf="!unit.completeFlightData?.logo" class="airline-name">{{unit.completeFlightData?.flight?.airline?.name}}</span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+    
+     
+      </div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+
+
+
+<div class="container">
+
+    <div class="row">   
+        <div class="col-12 d-flex justify-content-center">
+            <div class="pagination d-flex">
+                <button  #prevBtn class="page-link disabled" (click)="prevPage()"
+                ><i class="fa-solid fa-chevron-left"></i></button>
+
+                <div #btnsContainer class="btns-container" >
+                    <div class="cont-1 cont" #cont1>
+
+                    </div>
+
+                    <span id="ellipse-1" #ellipse1>...</span>
+
+                    <div class="cont-2 cont" #cont2>
+                        
+                    </div>
+
+                    <span id="ellipse-2" #ellipse2>...</span>
+
+                    <div class="cont-3 cont" #cont3>
+                        
+                    </div>
+
+                    
+                </div>
+                
+                <!-- <li *ngFor="let page of pages" [ngClass]="{ 'page-item':true,active:currentPage === page }"
+                (click)="onPageClicked(page)">
+                    <span class="page-link">{{ page }}</span>
+                </li> -->
+            
+                <button #nextBtn class="page-link" (click)="nextPage()"><i class="fa-solid fa-chevron-right" ></i></button>
+            </div>
+        </div>
+    </div>
+    
+
+</div>
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+
+    <div class="row">   
+        <div class="col-12 d-flex justify-content-center">
+            <ul class="pagination ">
+                <button  #prevBtn class="page-link hidden" (click)="prevPage()"
+                ><i class="fa-solid fa-chevron-left page-item"></i></button>
+                
+                <li *ngFor="let page of pages" [ngClass]="{ 'page-item':true,active:currentPage === page }"
+                (click)="onPageClicked(page)">
+                    <span class="page-link">{{ page }}</span>
+                </li>
+            
+                <button #nextBtn class="page-link" (click)="nextPage()"><i class="fa-solid fa-chevron-right page-item" ></i></button>
+            </ul>
+        </div>
+    </div>
+    
+
+</div> -->

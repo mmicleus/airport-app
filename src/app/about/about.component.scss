@@ -1,0 +1,42 @@
+.about-container{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100vw;
+    height:100vh;
+    background-image: url("../../assets/sky.jpg");
+    z-index:-1;
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+
+    // display: flex;
+    // align-items:center;
+    // justify-content: center;
+}
+
+.about{
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform: translateX(-50%);
+}
+
+.about-content{
+    text-align: center;
+    width:100%;
+    max-width:700px;
+}
+
+.about-content a{
+    color:#000;
+    font-weight:bold;
+    cursor: pointer !important;
+}
+
+.about-content,.about-title{
+    text-align: center;
+}
+

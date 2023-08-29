@@ -1,0 +1,140 @@
+// ------------------------------ table styling -------------------------------------------
+
+
+.airline-header{
+    min-width: 96px;
+  }
+
+  .airline-logo{
+    width:6rem;
+    height:auto;
+  }
+
+  .table-row{
+    padding-bottom:1.5rem;
+    border-bottom:1px solid rgb(246, 243, 243);
+    cursor: pointer;
+
+    color:#41454D;
+  }
+
+  .table-row:hover{
+    background-color: #fff;
+  }
+
+  .header-row{
+    font-size:0.8rem;
+    color:gray;
+    font-weight:600;
+    padding-bottom:2.4rem;
+  }
+
+  .track-btn{
+    height:fit-content;
+    border:none;
+    color:#41454D;
+  }
+
+  .track-btn:hover{
+    color:black;
+    border:1px solid #41454D;
+  }
+
+
+  .flight-nr{
+    font-weight: 600;
+
+    justify-content:space-between;
+  }
+
+  .flight-status{
+    font-weight:bold;
+    // color:#41454D;
+  }
+
+  .departure-airport{
+    font-size:1.5rem;
+    font-weight: 500;
+    // letter-spacing: 0.1rem;
+  }
+
+  .airport-name{
+    width:100%;
+    overflow-wrap:break-word;
+  }
+
+  .sch-time{
+    font-weight:500;
+  }
+
+  .delayed-time{
+    color:#EB3E32;
+    font-weight: bold;
+  }
+
+  .airline-name{
+    font-family: 'REM', sans-serif;
+    font-weight: 600;
+    font-size:1.1rem;
+    color:#41454D;
+  }
+
+  .logo-container{
+    min-width:96px;
+  }
+
+  .flight-nr{
+    
+  }
+
+  .flight-nr .flight-num{
+    height:fit-content;
+    border-bottom:2px solid black;
+  }
+
+  .fa-trash{
+    color: #ff0000;
+  }
+
+  .fa-trash:hover{
+    color:rgb(139, 5, 5);
+  }
+
+
+  @media screen and (max-width:768px){
+    .airline-logo{
+         width:4rem;
+    }
+
+
+    .flight-nr,
+    .flight-status,
+    .sch-time,
+    .airline-name
+    {
+         font-size:0.8rem;
+    }
+
+    .departure-airport{
+        font-size:1.2rem;
+    }
+
+    .header-row{
+        font-size:0.6rem;
+    }
+
+    .flight-nr{
+      flex-direction: column;
+      justify-content: flex-start;
+      row-gap:6px;
+    }
+
+
+    .airline-header{
+      display: none;
+    }
+
+    .logo-container{
+      display: none;
+    }
+  }

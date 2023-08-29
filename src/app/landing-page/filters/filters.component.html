@@ -1,0 +1,60 @@
+<!-- Start of search bar -->
+
+
+<div class="container">
+      <form class="d-flex" [formGroup]="form">
+        <div class="input-group mb-3 controls-container">
+
+<!-- <label><i class="fa-solid fa-magnifying-glass"></i></label> -->
+          <!-- <button class="btn btn-outline-warning search-btn" type="submit" id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button> -->
+          <button type="button" class="search-btn"  id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" formControlName="searchAirport"  class="form-control movie-search" placeholder="Search for an airport" aria-label="Recipient's username" aria-describedby="button-addon2">
+
+
+          <div class="suggestions-container">
+              <div (click)="loadAirport(suggestion)" class="suggestion d-flex justify-content-between" *ngFor="let suggestion of airportSuggestions" >
+                <span>{{suggestion.name}}</span>
+                <span>{{suggestion.icao}}</span>
+              </div>
+
+              <!-- <div class="suggestion d-flex justify-content-between">
+                <span>Dublin International</span>
+                <span>EIDW</span>
+              </div>
+
+              <div class="suggestion d-flex justify-content-between">
+                <span>Dublin International</span>
+                <span>EIDW</span>
+              </div> -->
+
+          </div>
+        </div>            
+      </form>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <h2 class="title">WHAT'S ON</h2>
+      </div>
+      <div class="col-12 col-md-6">
+        <form class="d-flex" [formGroup]="form" (ngSubmit)="search()">
+          <div class="input-group mb-3">
+            <input type="text" formControlName="searchAirport"  class="form-control movie-search" placeholder="Search for an airport" aria-label="Recipient's username" aria-describedby="button-addon2">
+            <button class="btn btn-outline-warning search-btn" type="submit" id="button-addon2">search</button>
+          </div>            
+        </form>
+      </div>
+    </div>
+  </div> -->
+
+  <!-- end of search bar -->

@@ -1,0 +1,299 @@
+/* carousel */
+
+
+
+// #plane-pic{
+//     width:50rem;
+// }
+
+//  ------------------------------ hero styling -------------------------------------
+
+  .hero{
+    height:60vh;
+    background-color: #00b6ff;
+    background-image: url("../../assets/airport.png");
+    background-size: cover;
+
+    position: relative;
+  }
+
+  .airport-name{
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+
+    font-size:3rem;
+    font-weight:bold;
+    font-family: 'Roboto', sans-serif; 
+    text-align:center;
+  }
+
+  .hero-footer{
+    position: absolute;
+    bottom:5%;
+
+    width:100%;
+  }
+
+  .hero-footer-container{
+    // width:100%;
+    // max-width:1200px;
+    // margin:0 auto;
+  }
+
+
+  .flight-btn{
+    position: relative;
+  }
+
+  .flight-btn.selected::after{
+    content:"";
+    position: absolute;
+    bottom:-5%;
+    left:0;
+    width:100%;
+    height:2px;
+    background-color: black;
+  }
+
+
+
+
+
+
+
+  .arrow-icon{
+    width:40px;
+    height:auto;
+  }
+
+  //end of hero styling
+
+  // ------------------------------ flight search bar styling ----------------------------
+
+
+
+  /* search bar section */
+
+.movie-search{
+  background-color: transparent;
+  border:none;
+  color:lightgray;
+}
+
+
+.search-btn{
+  background-color: transparent;
+  border:none;
+}
+
+.fa-magnifying-glass{
+  color:lightgray;
+  font-size: 1.1rem;
+}
+
+::placeholder{
+  color:lightgray;
+  font-size:1.1rem;
+}
+
+
+
+.movie-search:focus {
+    box-shadow: none;
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+  // end of flight search bar styling
+
+
+
+
+
+  // ------------------------------ table styling -------------------------------------------
+
+
+      .airline-header{
+        min-width: 96px;
+      }
+
+      .airline-logo{
+        width:6rem;
+        height:auto;
+
+        // @media screen and (max-width:768px){
+        //   width:4rem;
+        // }
+      }
+
+      .table-row{
+        padding-bottom:1.5rem;
+        border-bottom:1px solid rgb(246, 243, 243);
+        cursor: pointer;
+
+        color:#41454D;
+      }
+
+      .table-row:hover{
+        background-color: #fff;
+      }
+
+      .header-row{
+        font-size:0.8rem;
+        color:gray;
+        font-weight:600;
+        padding-bottom:2.4rem;
+
+
+        // @media screen and (max-width:768px){
+        //   font-size:0.6rem;
+        // }
+      }
+
+      .track-btn{
+        height:fit-content;
+        border:none;
+        color:#41454D;
+      }
+
+      .track-btn:hover{
+        color:black;
+        border:1px solid #41454D;
+      }
+
+
+      .flight-nr{
+        font-weight: 600;
+
+        justify-content: space-between;
+
+        // @media screen and (max-width:768px){
+        //   font-size:0.8rem;
+        // }
+      }
+
+      .flight-status{
+        font-weight:bold;
+
+        // @media screen and (max-width:768px){
+        //   font-size:0.7rem;
+        // }
+      }
+
+      .departure-airport{
+        font-size:1.5rem;
+        font-weight: 500;
+
+        // @media screen and (max-width:768px){
+        //   font-size:1.2rem;
+        // }
+
+        
+        // letter-spacing: 0.1rem;
+      }
+
+      .sch-time{
+        font-weight:500;
+        // @media screen and (max-width:768px){
+        //   font-size:0.7rem;
+        // }
+      }
+
+      .delayed-time{
+        color:#EB3E32;
+        font-weight: bold;
+      }
+
+      .airline-name{
+        font-family: 'REM', sans-serif;
+        font-weight: 600;
+        font-size:1.1rem;
+
+        color:#41454D;
+
+        // @media screen and (max-width:768px){
+        //   font-size:0.9rem;
+        // }
+      }
+
+      .logo-container{
+        min-width:96px;
+      }
+
+
+
+      // utility
+
+      .hidden{
+        display: none;
+      }
+
+      .departure-airport-name{
+        max-width:100%;
+        overflow-wrap: break-word;
+      }
+
+      @media screen and (max-width:768px){
+        .airline-logo{
+             width:4rem;
+        }
+
+
+        .flight-nr,
+        .flight-status,
+        .sch-time,
+        .airline-name
+        {
+             font-size:0.8rem;
+        }
+
+        .departure-airport{
+            font-size:1.2rem;
+        }
+
+        .header-row{
+            font-size:0.6rem;
+        }
+
+        .flight-nr{
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+
+        .airline-header{
+          display: none;
+        }
+
+        .logo-container{
+          display: none;
+        }
+      }
+
+
+
+      
+
+
+      
+
+
+
+
+
+
+
+
+  //end of table styling
+  

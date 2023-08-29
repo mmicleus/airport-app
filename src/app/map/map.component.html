@@ -1,0 +1,37 @@
+
+    <google-map 
+    width="100vw"
+    height="60vh"
+    [center]="center"
+    [zoom]="zoom"
+    
+    (click)="onMapClicked()"
+    (mapClick)="addMarker($event)"
+    (mapInitialized)="handleMapInitialized($event)"
+    id="google-maps-window"
+>
+<!-- <map-marker *ngFor="let markerPosition of markerPositions" [position]="markerPosition" [options]="markerOptions"></map-marker> -->
+<!-- <map-marker  *ngFor="let unit of trackedFlights;let indexOfElem=index" [position]="unit.coords.srcAirport.coords" [options]="getLocationIcon(indexOfElem)"></map-marker>
+<map-marker  *ngFor="let unit of trackedFlights;let indexOfElem=index" [position]="unit.coords.destAirport.coords" [options]="getLocationIcon(indexOfElem)"></map-marker>
+<map-marker  *ngFor="let unit of trackedFlights;let indexOfElem=index" [position]="unit.coords.geography.aircraftCoords" [options]="getCircleIcon(indexOfElem)"></map-marker> -->
+
+<!-- <map-marker [clickable]="true" (click)="showSrcAirportWindow($event,unit.coords.srcAirport.completeData)"   *ngFor="let unit of getShownFlights()" [position]="unit.coords.srcAirport.coords" [options]="getLocationIcon(unit.markerColor)" ></map-marker>
+<map-marker [clickable]="true" (click)="showDestAirportWindow($event,unit.coords.destAirport.completeData)" *ngFor="let unit of getShownFlights()" [position]="unit.coords.destAirport.coords" [options]="getLocationIcon(unit.markerColor)" ></map-marker>
+<map-marker [clickable]="true" (click)="showAircraftCoordsWindow($event,unit)" *ngFor="let unit of getShownFlights()" [position]="unit.coords.geography.aircraftCoords" [options]="getCircleIcon(unit.markerColor)" ></map-marker> -->
+</google-map>
+
+
+
+
+
+<!-- <app-table *ngIf="trackedFlights"></app-table> -->
+<app-table (centerMap)="centerMap($event)" (flightAdded)="addSelectedFlight($event)" (flightRemoved)="removeSelectedFlight($event)" (flightDeleted)="deleteFlight($event)" (airportClicked)="onAirportClicked($event)"></app-table>
+
+
+<!-- <div>Latitude: {{display?.lat}}</div>
+<div>Longitute: {{display?.lng}}</div>
+
+<div *ngIf="coordsData">Lng: {{coordsData?.geography?.aircraftCoords?.lng}}</div>
+<div *ngIf="coordsData">Lat: {{coordsData?.geography?.aircraftCoords?.lat}}</div> -->
+
+<!-- end of map-marker -->
