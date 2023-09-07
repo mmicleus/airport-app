@@ -138,6 +138,20 @@ export class UtilityService {
   }
 
 
+  getFormattedTime(date:string){
+    let dateObject = new Date(date);
+
+    let hour = this.prependZero(dateObject.getHours());
+    let minute = this.prependZero(dateObject.getMinutes());
+
+    // let dateOfMonth = dateObject.getDate();
+
+    // let month = this.getMonthNameByIndex(dateObject.getMonth()).toUpperCase();
+
+      return `${hour}:${minute}`;
+  }
+
+
   getFullFormattedDate(date:string){
 
     let dateObject = new Date(date);

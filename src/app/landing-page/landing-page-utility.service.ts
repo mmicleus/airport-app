@@ -76,6 +76,64 @@ export class LandingPageUtilityService {
       }
     }
 
+
+  
+
+    return "Unknown";
+  }
+
+
+  getCardStatusMessage(arrival:CompleteFlightData){
+    let status = arrival.flight.status;
+    let flightType = arrival.type;
+
+    if(flightType === 'Arrival'){
+
+      switch(status){
+        case "Arrived":
+          return `Arrived`
+        break;
+        case "Expected":
+          return `Estimated`
+        break;
+        case "Delayed":
+          return `Delayed`
+        break;
+        case "Canceled":
+          return `Canceled`
+        break;
+        case "Approaching":
+          return `Approaching`
+        break;
+        default:
+          return `Unknown`;
+      }
+    }
+    else if(flightType === 'Departure'){
+      switch(status){
+        case "Departed":
+          return `Departed`
+        break;
+        case "Boarding":
+          return `Boarding`
+        break;
+        case "GateClosed":
+          return `Gate Closed`
+        break;
+        case "Expected":
+          return `Expected`
+        break;
+        case "Delayed":
+          return `Delayed`
+        break;
+        case "Canceled":
+          return `Canceled`
+        break;
+        default:
+          return `Unknown`;
+      }
+    }
+
     return "Unknown";
   }
 

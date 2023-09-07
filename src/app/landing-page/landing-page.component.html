@@ -57,7 +57,7 @@
 
     <!-- -------------------------------------------- flights schedule table ---------------------------------------- -->
 
-  <div class="container mt-5" *ngIf="!isLoading">
+  <div class="container mt-5 desktop-view" *ngIf="!isLoading">
     <div class="row">
 
       <form class="d-flex">
@@ -96,6 +96,7 @@
       </div>
       <div class="col-4 departure-airport">
         <span class="departure-airport-name">{{tableUtility.getAirport(flightData)}}</span>
+        <!-- <span *ngIf="flightData.type==='Departure'">{{flightData.type}}</span> -->
       </div>
       <div class="col-2 sch-time">
         <div>
@@ -130,6 +131,59 @@
 
 
      <!-- -------------------------------------------- end of flights schedule table ---------------------------------------- -->
+
+
+
+     <!-- ---------------------------------------------- mobile view------------------------------------------------- -->
+
+     <div class="mt-5 mobile-view ps-4 pe-4" *ngIf="!isLoading">
+        <div class="flight-card mb-3" (click)="onFlightClick($event,flightData)" *ngFor="let flightData of flights">
+          <div class="card-content">
+            <div class="card-header d-flex justify-content-between">
+              <div class="left-side d-flex">
+
+                <div class="card-time me-4">
+                <span class="fw-bold" [ngStyle]="tableUtility.getSchTimeStyles(flightData)">{{utility.getFormattedTime(tableUtility.getSchTime(flightData))}}</span>
+                <div *ngIf="flightData.flight.status === 'Delayed'">
+                  <span class="delayed-time" >{{utility.getFormattedTime(tableUtility.getDelayTime(flightData))}}</span>
+                  <!-- <br>
+                    <span class="delayed-time">Delayed</span> -->
+                </div>
+              </div>
+
+              <div class="card-flight-data">
+                <span class="card-departure-airport-name fw-bold">{{tableUtility.getAirport(flightData)}}</span>
+                <br>
+                <span class="card-flight-nr me-2">{{flightData.flight.number}}</span> <span class="card-airline-name">{{flightData?.flight?.airline?.name}}</span>
+                <br>
+                <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData)">{{tableUtility.getCardStatusMessage(flightData)}}</span> <span class="card-gate" *ngIf="flightData.type === 'Departure'">Gate <span>{{flightData.flight.departure.gate}}</span></span>
+
+
+              </div>
+              </div>
+              <div class="right-side d-flex flex-column justify-content-between align-items-end">
+                <i class="fa-solid fa-arrow-right"></i>
+                <button (click)="goToTrackingPage(flightData)" class="track-btn">Track</button>
+              </div>
+            </div>
+            <hr *ngIf="flightData.type === 'Departure'">
+            <div class="card-footer d-flex justify-content-between" *ngIf="flightData.type === 'Departure'">
+
+              <span>Terminal <span class="card-terminal fw-bold">T{{flightData.flight.departure.terminal}}</span></span>
+
+              <span>Check-in Area <span class="fw-bold">{{flightData.flight.departure.checkInDesk}}</span></span>
+
+            </div>
+          </div>
+          
+
+          <!-- <span *ngIf="flightData.type==='Departure'">{{flightData.flight.departure.gate}}</span> -->
+        </div>
+      </div>
+
+
+
+     <!-- ----------------------------------------------end of mobile view ----------------------------------------------- -->
 
      <app-pagination (changePage)="onPageChange($event)" [ngClass]="{'hidden':isLoading}"></app-pagination>
 

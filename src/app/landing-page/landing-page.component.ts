@@ -86,6 +86,7 @@ export class LandingPageComponent implements OnInit {
     
     ngOnInit(){
           // this.loadHardcodedData();
+
           this.fetchNewAirport(this.currentAirport)
           this.intervalID = setInterval(this.updateAirportSchedule.bind(this),this.updateFrequencyInMins * 60000)
 

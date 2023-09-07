@@ -287,7 +287,7 @@ updateTrackedDepartures(departures:Array<Flight>,airportData:AirportData){
   getAirlineLogo(name:string):Observable<AirlineDataResponse>{
 
 
-    let headerParams = new HttpHeaders({'X-RapidAPI-Key': env.RAPID_API_KEY2,
+    let headerParams = new HttpHeaders({'X-RapidAPI-Key': env.RAPID_API_KEY1,
                                         'X-RapidAPI-Host': 'airlines-by-api-ninjas.p.rapidapi.com'});
 
 
