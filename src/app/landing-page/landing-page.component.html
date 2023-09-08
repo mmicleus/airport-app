@@ -156,7 +156,7 @@
                 <br>
                 <span class="card-flight-nr me-2">{{flightData.flight.number}}</span> <span class="card-airline-name">{{flightData?.flight?.airline?.name}}</span>
                 <br>
-                <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData)">{{tableUtility.getCardStatusMessage(flightData)}}</span> <span class="card-gate" *ngIf="flightData.type === 'Departure'">Gate <span>{{flightData.flight.departure.gate}}</span></span>
+                <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData)">{{tableUtility.getCardStatusMessage(flightData)}}</span> <span class="card-gate" *ngIf="flightData.type === 'Departure' && flightData.flight.departure.gate">Gate <span>{{flightData.flight.departure.gate}}</span></span>
 
 
               </div>
@@ -169,7 +169,7 @@
             <hr *ngIf="flightData.type === 'Departure'">
             <div class="card-footer d-flex justify-content-between" *ngIf="flightData.type === 'Departure'">
 
-              <span>Terminal <span class="card-terminal fw-bold">T{{flightData.flight.departure.terminal}}</span></span>
+              <span>Terminal <span class="card-terminal fw-bold" *ngIf="flightData.flight.departure.terminal">T{{flightData.flight.departure.terminal}}</span></span>
 
               <span>Check-in Area <span class="fw-bold">{{flightData.flight.departure.checkInDesk}}</span></span>
 

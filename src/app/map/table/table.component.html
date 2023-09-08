@@ -1,7 +1,7 @@
     <!-- -------------------------------------------- flights schedule table ---------------------------------------- -->
 
     <!-- <div class="container mt-5" *ngIf="!isLoading"> -->
-        <div class="container mt-5">
+        <div class="container mt-5 desktop-view">
         <!-- <div class="row">
     
           <form class="d-flex">
@@ -91,9 +91,52 @@
               </div>
             </div>
           </div>
+        </div>
+
+
+          <!-- ----------------------------- mobile view ---------------------------- -->
+
+
+          <div class="mt-5 mobile-view ps-3 pe-3">
+            <div class="flight-card" *ngFor="let flightData of trackedFlights" (click)="onFlightClicked($event,flightData)" >
+              <div class="card-content">
+                <div class="card-header d-flex justify-content-between">
+                  <div class="left-side d-flex">
     
-     
-      </div>
+                    <div class="card-time me-4">
+                    <span class="fw-bold" [ngStyle]="tableUtility.getSchTimeStyles(flightData.completeFlightData)">{{utility.getFormattedTime(tableUtility.getSchTime(flightData.completeFlightData))}}</span>
+                    <div *ngIf="flightData.completeFlightData.flight.status === 'Delayed'">
+                      <span class="delayed-time" >{{utility.getFormattedTime(tableUtility.getDelayTime(flightData.completeFlightData))}}</span>
+                      <!-- <br>
+                        <span class="delayed-time">Delayed</span> -->
+                    </div>
+                  </div>
+    
+                  <div class="card-flight-data">
+                    <span class="card-departure-airport-name fw-bold airport-name"  (click)="onAirportClicked(flightData.coords.srcAirport.coords,flightData)">{{flightData.coords.srcAirport.fullName}}</span> - <span class="card-arrival-airport-name fw-bold airport-name" (click)="onAirportClicked(flightData.coords.destAirport.coords,flightData)">{{flightData.coords.destAirport.fullName}}</span>
+                    <br>
+                    <span class="me-2 trash-icon"><i class="fa-solid fa-trash" (click)="deleteFlight(flightData)"></i></span>
+                    <span class="card-flight-nr me-2">{{flightData.completeFlightData.flight.number}}</span> <span class="card-airline-name">{{flightData.completeFlightData?.flight?.airline?.name}}</span>
+                    <br>
+                    <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData.completeFlightData)">{{tableUtility.getCardStatusMessage(flightData.completeFlightData)}}</span>
+    
+    
+                  </div>
+                  </div>
+                  <div class="right-side d-flex flex-column justify-content-between align-items-end">
+                    <i class="fa-solid fa-arrow-right"></i>
+                    <input type="checkbox" id="track" name="track" class="track" [checked]="isSelected(flightData)" (click)="onCheckboxToggled($event,flightData)" />
+                    <!-- <button (click)="goToTrackingPage(flightData)" class="track-btn">Track</button> -->
+                  </div>
+                </div>
+              </div>
+              
+    
+              <!-- <span *ngIf="flightData.type==='Departure'">{{flightData.flight.departure.gate}}</span> -->
+            </div>
+          </div>
+    
+    
 
 
 
