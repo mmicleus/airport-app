@@ -136,8 +136,8 @@
 
      <!-- ---------------------------------------------- mobile view------------------------------------------------- -->
 
-     <div class="mt-5 mobile-view ps-4 pe-4" *ngIf="!isLoading">
-        <div class="flight-card mb-3" (click)="onFlightClick($event,flightData)" *ngFor="let flightData of flights">
+     <div class="mt-5 mobile-view ps-3 pe-3" *ngIf="!isLoading">
+        <div class="flight-card" (click)="onFlightClick($event,flightData)" *ngFor="let flightData of flights">
           <div class="card-content">
             <div class="card-header d-flex justify-content-between">
               <div class="left-side d-flex">
