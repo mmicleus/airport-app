@@ -137,6 +137,14 @@
      <!-- ---------------------------------------------- mobile view------------------------------------------------- -->
 
      <div class="mt-5 mobile-view ps-3 pe-3" *ngIf="!isLoading">
+      
+      <form class="d-flex">
+        <div class="input-group mb-3">
+          <button type="button" class="search-btn"  id="button-addon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+          <input type="text" (input)="filterFlights(flightKeywordInput)" #flightKeywordInput maxlength="30"  class="form-control movie-search" placeholder="Search for a flight" aria-label="Recipient's username" aria-describedby="button-addon2">
+        </div>            
+      </form>
+
         <div class="flight-card" (click)="onFlightClick($event,flightData)" *ngFor="let flightData of flights">
           <div class="card-content">
             <div class="card-header d-flex justify-content-between">
@@ -156,7 +164,7 @@
                 <br>
                 <span class="card-flight-nr me-2">{{flightData.flight.number}}</span> <span class="card-airline-name">{{flightData?.flight?.airline?.name}}</span>
                 <br>
-                <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData)">{{tableUtility.getCardStatusMessage(flightData)}}</span> <span class="card-gate" *ngIf="flightData.type === 'Departure' && flightData.flight.departure.gate">Gate <span>{{flightData.flight.departure.gate}}</span></span>
+                <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData)">{{tableUtility.getStatusMessage(flightData)}}</span> <span class="card-gate" *ngIf="flightData.type === 'Departure' && flightData.flight.departure.gate">Gate <span>{{flightData.flight.departure.gate}}</span></span>
 
 
               </div>

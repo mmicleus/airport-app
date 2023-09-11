@@ -118,7 +118,7 @@
                     <span class="me-2 trash-icon"><i class="fa-solid fa-trash" (click)="deleteFlight(flightData)"></i></span>
                     <span class="card-flight-nr me-2">{{flightData.completeFlightData.flight.number}}</span> <span class="card-airline-name">{{flightData.completeFlightData?.flight?.airline?.name}}</span>
                     <br>
-                    <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData.completeFlightData)">{{tableUtility.getCardStatusMessage(flightData.completeFlightData)}}</span>
+                    <span class="card-flight-status me-3 fw-bold" [ngStyle]="tableUtility.getStylesByStatus(flightData.completeFlightData)">{{tableUtility.getStatusMessage(flightData.completeFlightData)}}</span>
     
     
                   </div>

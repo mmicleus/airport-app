@@ -142,6 +142,7 @@ export class LandingPageComponent implements OnInit {
       this.s1 = this.networkService.getScheduledFlights(this.currentAirport,this.startingTime,this.endingTime).subscribe(this.receiveUpdatedAirportSchedule.bind(this),this.handleError.bind(this));
     }
 
+    
 
 
     receiveAirportSchedule(response:AirportScheduleResponse){
